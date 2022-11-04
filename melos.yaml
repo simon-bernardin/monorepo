@@ -1,0 +1,18 @@
+name: monorepo
+
+packages:
+  - common/**
+  - flutter_app/**
+  - frog_back/**
+
+command:
+  bootstrap:
+    usePubspecOverrides: false
+
+scripts:
+  build:back:
+    run: |
+      melos exec -c 6 --fail-fast -- "dart_frog build"
+    description: Build the dart frog back
+    select-package:
+      scope: "*frog_back*"
